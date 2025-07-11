@@ -3,16 +3,26 @@
 :root {
     --background: #FFECB1;
     --foreground: #3F3322;
+    --background-darker: #F8DB99;
 
     --primary: #F79E3A;
     --primary-foreground: #3F3322;
+
+    --brown: #C6A16C;
+    --brown-deep: #9C6123;
+
+    --yellow: #FCBF40;
 }
 
 @theme {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
+    --color-background-darker: var(--background-darker);
     --color-primary: var(--primary);
     --color-primary-foreground: var(--primary-foreground);
+    --color-brown: var(--brown);
+    --color-brown-deep: var(--brown-deep);
+    --color-yellow: var(--yellow);
 }
 
 body , html {

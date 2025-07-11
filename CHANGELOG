@@ -6,3 +6,10 @@
 - Fixed TS composite error
 - Update type-check script to enforce build and remove noEmit option from tsconfig
 - Add new components, update dependencies, and enhance styling
+
+### Add new components for user interface: LargeButton, TapProgressBar, UpgradeItem, and UpgradesBox
+
+- Implemented LargeButton.vue for a styled button with shadow effects.
+- Created TapProgressBar.vue to visually represent progress with a simple bar.
+- Developed UpgradeItem.vue to display upgrade options with images and buttons.
+- Added UpgradesBox.vue to contain and organize multiple UpgradeItem components.
