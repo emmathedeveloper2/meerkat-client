@@ -4,3 +4,4 @@
 
 - Add CHANGELOG and update README with project description and features
 - Fixed TS composite error
+- Update type-check script to enforce build and remove noEmit option from tsconfig
