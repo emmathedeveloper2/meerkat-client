@@ -1,13 +1,3 @@
 <template>
-  <div>
-    <h1>Meerkat</h1>
-  </div>
+  <router-view></router-view>
 </template>
-
-<script lang="ts" setup>
-
-</script>
-
-<style>
-
-</style>

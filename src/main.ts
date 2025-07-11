@@ -1,4 +1,6 @@
 import './styles/base.css'
+// Supports weights 100-900
+import '@fontsource-variable/jost';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
