@@ -12,6 +12,7 @@
 
 <style scoped>
   button {
+    background-image: linear-gradient(ro right, #911A53 0%, #C76F0C 48% , #D0685B 100%);
     box-shadow: 0 4px 8px 5px color-mix(in srgb, var(--brown-deep) 50%, transparent);
   }
 
