@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 7 - 11 - 25
+## 11 - 7 - 25
 
 - Add CHANGELOG and update README with project description and features
 - Fixed TS composite error
@@ -13,3 +13,11 @@
 - Created TapProgressBar.vue to visually represent progress with a simple bar.
 - Developed UpgradeItem.vue to display upgrade options with images and buttons.
 - Added UpgradesBox.vue to contain and organize multiple UpgradeItem components.
+
+## 12 - 7 - 25
+
+- Added telegram authentication with the following changes:
+  - Updated `src/stores/auth.ts` to use `TgUser|undefined` instead of `TgUser|null`.
+  - Modified `src/router/index.ts` to handle user authentication and redirect to `/connect` if not authorized.
+  - Updated `src/components/Header.vue` to include user information
+  - Added a referral page in `src/pages/main/referral.vue` with a button to copy referral link and share via Telegram.

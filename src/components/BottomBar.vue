@@ -7,10 +7,14 @@ import IconWallet from './icons/IconWallet.vue';
 
 <template>
   <nav class="flex items-center justify-between p-[10px] border-t-2 border-primary text-primary">  
-      <router-link to="/main">
+      <RouterLink to="/main">
         <IconHome size="24px"/>
-      </router-link>
-      <IconReferral size="24px"/>
+      </RouterLink>
+
+      <RouterLink to="/main/referral">
+        <IconReferral size="24px"/>
+      </RouterLink>
+      
       <IconWallet size="24px"/>
   </nav>
 </template>

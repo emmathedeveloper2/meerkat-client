@@ -1,7 +1,12 @@
+<script lang="ts" setup>
+ defineProps<{
+    label?: string;
+ }>()
+</script>
 
 <template>
   <button class="w-max border-2 border-brown-deep bg-primary py-[10px] px-[50px] rounded-[10px] font-bold text-[20px]">
-    TAP TO DIG
+    {{ label || 'Button' }}
   </button>
 </template>
 

@@ -14,7 +14,7 @@ export default defineConfig({
     tailwindcss(),
     vueRouter(),
     vue(),
-    vueDevTools(),
+    // vueDevTools(),
   ],
   resolve: {
     alias: {
