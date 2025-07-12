@@ -6,7 +6,7 @@ import IconWallet from './icons/IconWallet.vue';
 </script>
 
 <template>
-  <nav class="flex items-center justify-between p-[10px] border-t-2 border-primary text-primary">  
+  <nav class="flex items-center justify-between p-[10px] text-primary">  
       <RouterLink to="/main">
         <IconHome size="24px"/>
       </RouterLink>
@@ -23,6 +23,9 @@ import IconWallet from './icons/IconWallet.vue';
 
 <style scoped>
   nav {
-    box-shadow: 0 -7px 20px 0px color-mix(in srgb, var(--brown-deep) 50%, transparent);
+    box-shadow: 0 -7px 20px 0px color-mix(in srgb, #E30404 50%, transparent);
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(to right, #911A53 0%, #C76F0C 48% , #D0685B 100%);
+    border-image-slice: 1;
   }
 </style>

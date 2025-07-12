@@ -6,7 +6,7 @@
   <main class="flex flex-col items-center justify-end h-dvh text-white p-[20px]">
     <section class="w-full flex-1 flex flex-col items-center">
       <h1 class="text-[40px] font-premium w-full text-left">MEERKAT</h1>
-      <img src="/assets/premium-coin.png" class="h-[280px]"/>
+      <img src="/assets/premium-coin.png" />
     </section>
     <section class="w-full h-max">
       <div class="flex flex-col w-full flex flex-col items-end">
@@ -16,7 +16,7 @@
     </section>
     <section class="flex-1 flex items-center justify-center">
         <router-link to="/main">
-          <span class="flex items-center gap-2 gradient-text text-primary font-bold">CONNECT TO TELEGRAM <IconPlug size="15px"/></span>
+          <span class="flex items-center gap-2 gradient-text text-primary font-bold text-[20px]">CONNECT TO TELEGRAM <IconPlug size="15px"/></span>
         </router-link>
     </section>
   </main>
