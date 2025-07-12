@@ -7,7 +7,7 @@ import Header from '@/components/Header.vue'
   <div class="flex flex-col h-dvh wrapper md:border-x-2 md:border-primary">
     <Header />
     <RouterView v-slot="{ Component }">
-      <Transition name="slide">
+      <Transition name="fade" mode="out-in">
         <component :is="Component" />
       </Transition>
     </RouterView>
