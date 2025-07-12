@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@fontsource-variable/jost": "^5.2.6",
+    "@fontsource/antic-didone": "^5.2.6",
     "@iconify/json": "^2.2.357",
     "@tailwindcss/vite": "^4.1.11",
     "@telegram-apps/sdk": "^3.11.4",

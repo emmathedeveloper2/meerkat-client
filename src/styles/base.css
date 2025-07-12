@@ -12,6 +12,9 @@
     --brown-deep: #9C6123;
 
     --yellow: #FCBF40;
+
+    --black: #0B0A0A;
+    --purple: #2D0A0B;
 }
 
 @theme {
@@ -23,9 +26,11 @@
     --color-brown: var(--brown);
     --color-brown-deep: var(--brown-deep);
     --color-yellow: var(--yellow);
+    --font-premium: 'Antic Didone', sans-serif;
 }
 
-body , html {
+body,
+html {
     height: 100dvh;
     width: 100%;
 }
@@ -37,12 +42,43 @@ body , html {
         font-family: 'Jost Variable', 'Inter', sans-serif;
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        color: var(--foreground);
-    }
-
-    main , .wrapper {
+    main,
+    .wrapper {
         max-width: 800px;
         margin: auto;
     }
+}
+
+@layer utilities {
+    .gradient-text {
+        background-image: linear-gradient(to right, #832D40 0%, #F79E3A 50%, #A64C5F 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: all 0.75s ease-out;
+}
+
+.slide-enter-to {
+    position: absolute;
+    right: 0;
+}
+
+.slide-enter-from {
+    position: absolute;
+    right: -100%;
+}
+
+.slide-leave-to {
+    position: absolute;
+    left: -100%;
+}
+
+.slide-leave-from {
+    position: absolute;
+    left: 0;
 }

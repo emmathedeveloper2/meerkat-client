@@ -16,8 +16,18 @@
 
 ## 12 - 7 - 25
 
-- Added telegram authentication with the following changes:
+### Added telegram authentication with the following changes:
   - Updated `src/stores/auth.ts` to use `TgUser|undefined` instead of `TgUser|null`.
   - Modified `src/router/index.ts` to handle user authentication and redirect to `/connect` if not authorized.
   - Updated `src/components/Header.vue` to include user information
   - Added a referral page in `src/pages/main/referral.vue` with a button to copy referral link and share via Telegram.
+
+### feat: add CoinsEarnedDisplayBox component for displaying earned coins
+
+### feat: implement Leaderboard component to showcase top users and their earned coins
+
+### feat: create UpgradeInventoryPreviewItem component for displaying upgrade items with counts
+
+### feat: develop UpgradesInventoryPreview component to show available upgrades
+
+### feat: add IconPlug and IconPlus components for SVG icons used in the application

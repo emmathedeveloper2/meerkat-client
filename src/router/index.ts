@@ -16,17 +16,23 @@ router.beforeEach((to, from, next) => {
 
   const goingToMainPage = to.fullPath.startsWith('/main')
 
-  if(goingToMainPage) auth.user = tgWebAppData?.user
-  
-  if(!auth.isAuthorized && goingToMainPage){
-      return next('/connect')
+  if (goingToMainPage) auth.user = tgWebAppData?.user
+
+  if (!auth.isAuthorized && goingToMainPage) {
+    return next('/connect')
   }
 
   next()
 })
 
-router.onError((error , to , from) => {
-  
+// router.afterEach((to, from) => {
+//   const toDepth = to.path.split('/').length;
+//   const fromDepth = from.path.split('/').length;
+//   to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+// })
+
+router.onError((error, to, from) => {
+
   if (error instanceof LaunchParamsRetrieveError && to.fullPath !== '/connect') {
     console.error('Failed to retrieve launch parameters:', error)
     return
@@ -35,6 +41,6 @@ router.onError((error , to , from) => {
 
 export default router
 
-if (import.meta.hot) { 
-  handleHotUpdate(router) 
+if (import.meta.hot) {
+  handleHotUpdate(router)
 } 

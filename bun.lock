@@ -5,6 +5,7 @@
       "name": "meerkat",
       "dependencies": {
         "@fontsource-variable/jost": "^5.2.6",
+        "@fontsource/antic-didone": "^5.2.6",
         "@iconify/json": "^2.2.357",
         "@tailwindcss/vite": "^4.1.11",
         "@telegram-apps/sdk": "^3.11.4",
@@ -150,6 +151,8 @@
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.25.6", "", { "os": "win32", "cpu": "x64" }, "sha512-NgJPHHbEpLQgDH2MjQu90pzW/5vvXIZ7KOnPyNBm92A6WgZ/7b6fJyUBjoumLqeOQQGqY2QjQxRo97ah4Sj0cA=="],
 
     "@fontsource-variable/jost": ["@fontsource-variable/jost@5.2.6", "", {}, "sha512-MvNwzo2j2gARQ2z9w2bH7z5KCnXWGcdlBcJ91cmpWPixvhpi5qSUdHIyFcf7AuwrSIY/BTkbYBwPX+njcE5Law=="],
+
+    "@fontsource/antic-didone": ["@fontsource/antic-didone@5.2.6", "", {}, "sha512-dWpZarPwfAkrNAeSLYVg2vmYYR8HT1gj/jP0XEHmzOXE+0ksweDL0uTLsDbdfFu0Ap20C4ly8DyTN4HJ5qz7LA=="],
 
     "@iconify/json": ["@iconify/json@2.2.357", "", { "dependencies": { "@iconify/types": "*", "pathe": "^1.1.2" } }, "sha512-v8fr/KwcJ0qsoEJ69k1+M928bfzNmmApyJBTIAwwIzHZrVEUneHTEOJRy7OVYKisauBMVVH067I2uFNoPA92iA=="],
 

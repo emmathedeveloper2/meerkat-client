@@ -15,7 +15,9 @@ import IconWallet from './icons/IconWallet.vue';
         <IconReferral size="24px"/>
       </RouterLink>
       
-      <IconWallet size="24px"/>
+      <RouterLink to="/main/wallet">
+        <IconWallet size="24px"/>
+      </RouterLink>
   </nav>
 </template>
 
