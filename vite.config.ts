@@ -24,7 +24,7 @@ export default defineConfig({
   server: {
     proxy : {
       '/api' : {
-        target: 'https://meerkat-bot-server.emmathedeveloper.workers.dev',
+        target: 'https://meerkat-bot-server.emmathedeveloper.workers.dev/',
         changeOrigin: true,
       }
     }
