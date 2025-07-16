@@ -9,6 +9,9 @@ import UpgradeItem from './UpgradeItem.vue';
 
     <UpgradeItem image-url="/assets/shovel.png" title="SHOVEL" button-text="100"/>
     <UpgradeItem image-url="/assets/meerkat-head.png" title="MINER" button-text="100"/>
-    <UpgradeItem image-url="/assets/shovel.png" title="REFERRAL" button-text="invite" :is-referral="true"/>
+
+    <RouterLink to="/main/referral">
+      <UpgradeItem image-url="/assets/shovel.png" title="REFERRAL" button-text="invite" :is-referral="true"/>
+    </RouterLink>
   </section>
 </template>
