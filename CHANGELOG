@@ -35,3 +35,5 @@
 ### 16 - 7 - 25
 
 feat: integrate vue3-hot-toast for notifications, add LoadingUI and TapPowerBar components, and implement wallet and tap power stores
+
+fix: update API fetch calls to use BASE_URL and remove server proxy configuration

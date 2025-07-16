@@ -1,6 +1,6 @@
 import toast from 'vue3-hot-toast'
 
-
+const BASE_URL = "https://meerkat-bot-server.emmathedeveloper.workers.dev"
 export default class MeerkatAPIBridge {
 
 
@@ -8,7 +8,7 @@ export default class MeerkatAPIBridge {
 
         try {
 
-            const response = await fetch('/api/give-referral-bonus', {
+            const response = await fetch(`${BASE_URL}/api/give-referral-bonus`, {
                 method: 'POST',
                 body: JSON.stringify({ userTelegramId, referrerTelegramId }),
                 headers: {
@@ -36,7 +36,7 @@ export default class MeerkatAPIBridge {
 
             id = toast.loading("Connecting...")
 
-            const response = await fetch('/api/create-account', {
+            const response = await fetch(`${BASE_URL}/api/create-account`, {
                 method: 'POST',
                 body: JSON.stringify({ telegramId }),
                 headers: {
@@ -67,7 +67,7 @@ export default class MeerkatAPIBridge {
 
         try {
 
-            const response = await fetch(`/api/wallet-balance/${telegramId}`, {
+            const response = await fetch(`${BASE_URL}/api/wallet-balance/${telegramId}`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json"
