@@ -4,8 +4,14 @@ import IconBack from '@/components/icons/IconBack.vue';
 import CoinsEarnedDisplayBox from '@/components/CoinsEarnedDisplayBox.vue';
 import UpgradesInventoryPreview from '@/components/UpgradesInventoryPreview.vue';
 import Leaderboard from '@/components/Leaderboard.vue';
+import { useWallet } from '@/stores/wallet';
+import { onMounted } from 'vue';
 
+const wallet = useWallet()
 
+onMounted(async () => {
+    await wallet.fetchWalletBalance()
+})
 </script>
 
 <template>
@@ -23,7 +29,7 @@ import Leaderboard from '@/components/Leaderboard.vue';
             <IconBack size="24px" class="cursor-pointer opacity-0" />
         </div>
 
-        <CoinsEarnedDisplayBox class="mt-[20px]" :coins="329"/>
+        <CoinsEarnedDisplayBox class="mt-[20px]" :coins="wallet.balance" />
 
         <UpgradesInventoryPreview />
 

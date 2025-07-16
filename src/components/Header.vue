@@ -1,8 +1,16 @@
 <script lang="ts" setup>
 import { useAuthStore } from '@/stores/auth';
 import Avatar from './avatar.vue';
+import { onMounted } from 'vue';
+import { useWallet } from '@/stores/wallet';
 
 const auth = useAuthStore()
+
+const wallet = useWallet()
+
+onMounted(async () => {
+  await wallet.fetchWalletBalance()
+})
 </script>
 
 <template>
@@ -16,7 +24,7 @@ const auth = useAuthStore()
 
     <div class="flex items-center gap-[4px]">
       <img src="/assets/coin.png" alt="coin" class="size-[24px]">
-      <span class="font-bold">329</span>
+      <span class="font-bold">{{ wallet.balance }}</span>
     </div>
   </header>
 </template>

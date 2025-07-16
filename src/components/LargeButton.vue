@@ -2,10 +2,12 @@
 defineProps<{
   label?: string;
 }>()
+
+const emit = defineEmits(['click'])
 </script>
 
 <template>
-  <button class="w-max font-bold text-[20px] rounded-[10px] p-[2px]">
+  <button @click="() => emit('click')" class="w-max font-bold text-[20px] rounded-[10px] p-[2px]">
     <div class="size-full py-[10px] px-[50px] rounded-[10px]">
       {{ label || 'Button' }}
     </div>

@@ -31,3 +31,7 @@
 ### feat: develop UpgradesInventoryPreview component to show available upgrades
 
 ### feat: add IconPlug and IconPlus components for SVG icons used in the application
+
+### 16 - 7 - 25
+
+feat: integrate vue3-hot-toast for notifications, add LoadingUI and TapPowerBar components, and implement wallet and tap power stores

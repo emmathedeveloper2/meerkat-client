@@ -21,4 +21,12 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    proxy : {
+      '/api' : {
+        target: 'https://d4mkx0vv-8787.uks1.devtunnels.ms',
+        changeOrigin: true,
+      }
+    }
+  }
 })

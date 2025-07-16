@@ -1,5 +1,17 @@
 <script lang="ts" setup>
   import IconPlug from '@/components/icons/IconPlug.vue';
+import MeerkatAPIBridge from '@/lib/meerkat-api-bridge';
+import router from '@/router';
+import { useAuthStore } from '@/stores/auth';
+
+  const auth = useAuthStore()
+
+  const handleClick = async () => {
+    if(auth.user) await MeerkatAPIBridge.createAccount(auth.user.id.toString() , () => {
+      router.push('/main')
+    })
+  }
+
 </script>
 
 <template>
@@ -15,9 +27,9 @@
       </div>
     </section>
     <section class="flex-1 flex items-center justify-center">
-        <router-link to="/main">
+        <button @click="handleClick" class="cursor-pointer">
           <span class="flex items-center gap-2 gradient-text text-primary font-bold text-[20px]">CONNECT TO TELEGRAM <IconPlug size="15px"/></span>
-        </router-link>
+        </button>
     </section>
   </main>
 </template>

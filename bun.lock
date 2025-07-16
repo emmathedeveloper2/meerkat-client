@@ -15,6 +15,7 @@
         "unplugin-icons": "^22.1.0",
         "vue": "^3.5.17",
         "vue-router": "^4.5.1",
+        "vue3-hot-toast": "^0.0.5",
       },
       "devDependencies": {
         "@tsconfig/node22": "^22.0.2",
@@ -649,6 +650,8 @@
     "vue-router": ["vue-router@4.5.1", "", { "dependencies": { "@vue/devtools-api": "^6.6.4" }, "peerDependencies": { "vue": "^3.2.0" } }, "sha512-ogAF3P97NPm8fJsE4by9dwSYtDwXIY1nFY9T6DyQnGHd1E2Da94w9JIolpe42LJGIl0DwOHBi8TcRPlPGwbTtw=="],
 
     "vue-tsc": ["vue-tsc@2.2.12", "", { "dependencies": { "@volar/typescript": "2.4.15", "@vue/language-core": "2.2.12" }, "peerDependencies": { "typescript": ">=5.0.0" }, "bin": { "vue-tsc": "./bin/vue-tsc.js" } }, "sha512-P7OP77b2h/Pmk+lZdJ0YWs+5tJ6J2+uOQPo7tlBnY44QqQSPYvS0qVT4wqDJgwrZaLe47etJLLQRFia71GYITw=="],
+
+    "vue3-hot-toast": ["vue3-hot-toast@0.0.5", "", { "peerDependencies": { "vue": "^3.2.45" } }, "sha512-BAAyaEWwafngcrYjZ4nbNZawnx5XuAa4aVzcwPG0cLZw8dQQQSfqo+fADKGc90Vy3GvfKNCMNRPg0fE103ASLg=="],
 
     "webpack-virtual-modules": ["webpack-virtual-modules@0.6.2", "", {}, "sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ=="],
 
