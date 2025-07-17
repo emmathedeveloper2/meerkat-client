@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex items-center justify-between px-[30px] py-[10px] text-primary">  
+  <nav class="flex items-center justify-between  py-[10px] text-primary">  
       <RouterLink to="/main">
         <img src="/assets/images/home-icon.png" alt="home-icon" class="size-[24px]"/>
       </RouterLink>
