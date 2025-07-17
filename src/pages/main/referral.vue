@@ -22,10 +22,10 @@ const handleCopy = async () => {
 
 onMounted(() => {
     //@ts-ignore
-    const qrcode = new QRCode(document.getElementById('qrcode'), {
+    new QRCode(document.getElementById('qrcode'), {
         text: referralLink,
-        width: 140,
-        height: 140,
+        width: 170,
+        height: 170,
         colorDark: '#000',
         colorLight: '#fff',
         //@ts-ignore
@@ -37,7 +37,7 @@ onMounted(() => {
 <template>
     <main class="w-full flex-1 relative z-0 overflow-hidden">
         
-        <div class="absolute -z-10 left-1/2 -translate-x-1/2 top-[80%] -translate-y-[70%] size-[500px]">
+        <div class="absolute -z-10 left-1/2 -translate-x-1/2 top-[60%] -translate-y-[70%] size-[500px]">
             <img src="/assets/images/premium-coin.png" alt="coin" class="object-cover size-full">
         </div>
 
@@ -48,7 +48,7 @@ onMounted(() => {
             </RouterLink>
     
     
-            <div class="size-[200px] rounded bg-[#D7464650] mb-[30px] p-[20px] grid place-items-center rounded-[15px] backdrop-blur">
+            <div class="size-[250px] rounded bg-[#D7464650] mb-[30px] p-[20px] grid place-items-center rounded-[15px] backdrop-blur">
                 <div class="grid place-items-center bg-white p-2">
                     <div id="qrcode"></div>
                 </div>

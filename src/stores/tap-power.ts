@@ -31,6 +31,13 @@ export const useTapPowerStore = defineStore('tappower', () => {
 
         dropTotalTapsTimeOut = setTimeout(() => {
             dropTotalTapsTimer = setInterval(() => {
+
+                if(totalTaps.value <= 0){
+                    clearInterval(dropTotalTapsTimer)
+                    clearTimeout(dropTotalTapsTimeOut)
+                    return
+                }
+
                 totalTaps.value -= 1
             } , 200)
         } , 1000)

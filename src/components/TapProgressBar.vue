@@ -6,8 +6,8 @@ const tapPower = useTapPowerStore()
 </script>
 
 <template>
-  <div id="progress-bar-container" class="w-[200px] min-h-[20px] bg-brown border-2 border-brown-deep rounded-full overflow-hidden">
-    <div :style="{ width: tapPower.totalTaps + '%' , transition: '.2s linear' }" class="bg-yellow h-full rounded-full"></div>
+  <div id="progress-bar-container" class="w-[200px] min-h-[20px] rounded-full overflow-hidden">
+    <div :style="{ width: tapPower.totalTaps + '%' , transition: '.2s linear' }" class="h-full rounded-full bg-lime-400"></div>
   </div>
 </template>
 
