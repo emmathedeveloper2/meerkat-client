@@ -9,7 +9,7 @@ const tapPower = useTapPowerStore()
 </script>
 
 <template>
-  <main class="flex flex-col items-center flex-1 p-[30px] overflow-y-auto">
+  <main class="flex flex-col items-center flex-1 p-[30px] overflow-y-auto pt-[70px]">
       <TapProgressBar />
       
       <img src="/assets/meerkat-with-shadow.png" alt="mascot">
