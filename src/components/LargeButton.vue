@@ -7,8 +7,8 @@ const emit = defineEmits(['click'])
 </script>
 
 <template>
-  <button @click="() => emit('click')" class="w-max font-bold text-[20px] rounded-[10px] p-[2px]">
-    <div class="size-full py-[10px] px-[50px] rounded-[10px]">
+  <button @click="() => emit('click')" class="w-max font-bold text-[20px] rounded-full p-[2px]">
+    <div class="size-full py-[10px] px-[50px] rounded-full text-black">
       {{ label || 'Button' }}
     </div>
   </button>
@@ -16,15 +16,15 @@ const emit = defineEmits(['click'])
 
 <style scoped>
 button {
-  box-shadow: 0 4px 8px 5px color-mix(in srgb, var(--brown-deep) 50%, transparent);
   background-image: linear-gradient(to right, #B7256B, #F79E3A);
-}
-
-button div {
-  background-image: linear-gradient(to right, #911A53 0%, #C76F0C 48%, #D0685B 100%);
+  box-shadow: 0 7px 50px 18px #AD060070;
 }
 
 button:active {
-  box-shadow: none;
+  box-shadow: -13px -1px 50px 0px #C4084D70;
+}
+
+button div {
+  background-image: linear-gradient(to right, #F90004 , #E9A94E);
 }
 </style>

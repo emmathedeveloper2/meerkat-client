@@ -41,8 +41,9 @@ html {
 
 @layer base {
     body {
-        background-color: var(--background);
-        color: var(--foreground);
+        /* background-color: var(--background); */
+        background-image: linear-gradient(to bottom, #EA9B48 -70%, #450303 53%, #0C0605 84%);
+        color: #fff;
         font-family: 'Jost Variable', 'Inter', sans-serif;
     }
 

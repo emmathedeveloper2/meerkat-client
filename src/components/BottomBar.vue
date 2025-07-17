@@ -8,24 +8,28 @@ import IconWallet from './icons/IconWallet.vue';
 <template>
   <nav class="flex items-center justify-between p-[10px] text-primary">  
       <RouterLink to="/main">
-        <IconHome size="24px"/>
+        <img src="/assets/images/home-icon.png" alt="home-icon" class="size-[24px]"/>
       </RouterLink>
-
+      
       <RouterLink to="/main/referral">
-        <IconReferral size="24px"/>
+        <img src="/assets/images/link-icon.png" alt="link-icon" class="size-[24px]"/>
       </RouterLink>
       
       <RouterLink to="/main/wallet">
-        <IconWallet size="24px"/>
+        <img src="/assets/images/wallet-icon.png" alt="home-icon" class="size-[24px]"/>
       </RouterLink>
   </nav>
 </template>
 
 <style scoped>
   nav {
-    box-shadow: 0 -7px 20px 0px color-mix(in srgb, #E30404 50%, transparent);
+    background-color: #0C0605;
     border-top: 2px solid transparent;
     border-image: linear-gradient(to right, #911A53 0%, #C76F0C 48% , #D0685B 100%);
     border-image-slice: 1;
+  }
+
+  img {
+    filter: drop-shadow(0px -1px 10px #C4084D90);
   }
 </style>

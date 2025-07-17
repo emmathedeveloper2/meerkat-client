@@ -3,22 +3,43 @@
         imageUrl: string;
         title: string;
         isReferral?: boolean;
-        buttonText?: string;
+        price?: string
     }>()
 </script>
 
 <template>
-  <div class="w-full p-2 rounded bg-background flex items-center justify-between mt-[5px]">
-    <div class="flex items-center gap-1">
-        <div class="size-[30px] overflow-hidden">
-            <img :src="imageUrl" alt="image" class="size-full object-cover">
+  <div class="w-full p-2 rounded flex items-center justify-between mt-[5px] bg-[#4D4B4B50] border-white cont">
+    <div class="flex items-center">
+        <div class="size-[35px] overflow-hidden">
+            <img :src="imageUrl" alt="image" class="object-cover size-full">
         </div>
-        <h3 class="font-bold">{{ title }}</h3>
+        <h3>{{ title }}</h3>
     </div>
 
-    <button :class="{'w-[65px]': isReferral}" class="flex items-center justify-center gap-1 bg-primary rounded-lg border-2 border-brown-deep font-bold px-1">
-        <img v-if="!isReferral" src="/assets/coin.png" alt="referral icon" class="size-[20px]" />
-        {{ buttonText || 'Text' }}
-    </button>
+    <div v-if="price && !isReferral" class="flex items-center gap-1">
+        <img src="/assets/images/coin-icon.png" alt="coin" class="size-[20px]"/>
+        <small class="font-semibold">100</small>
+    </div>
+    
+    <div v-if="isReferral" class="flex items-center gap-2">
+        <div class="flex items-ccnter gap-1">
+            <small>+10</small>
+            <img src="/assets/images/coin-icon.png" alt="coin" class="size-[20px]"/>
+        </div>
+
+        <button class="rounded-[10px] px-2">
+            invite
+        </button>
+    </div>
   </div>
 </template>
+
+<style scoped>
+    .cont {
+        border-width: 0.5px;
+    }
+    button {
+        background-image: linear-gradient(to right, #F90004 , #E9A94E);
+        box-shadow: 0 7px 50px 15px #AD0600;
+    }
+</style>

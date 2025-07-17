@@ -18,7 +18,7 @@ import { useAuthStore } from '@/stores/auth';
   <main class="flex flex-col items-center justify-end h-dvh text-white p-[20px]">
     <section class="w-full flex-1 flex flex-col items-center">
       <h1 class="text-[40px] font-premium w-full text-left">MEERKAT</h1>
-      <img src="/assets/premium-coin.png" />
+      <img src="/assets/images/premium-coin.png" />
     </section>
     <section class="w-full h-max">
       <div class="flex flex-col w-full flex flex-col items-end">

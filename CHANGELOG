@@ -39,3 +39,8 @@ feat: integrate vue3-hot-toast for notifications, add LoadingUI and TapPowerBar 
 fix: update API fetch calls to use BASE_URL and remove server proxy configuration
 
 feat: enhance TapProgressBar and tap power store with dynamic tap tracking and improved total taps logic
+
+### 17 - 7 - 25
+
+Full UI Revamp
+Add new Telegram and wallet icons to the assets/images directory

@@ -15,26 +15,31 @@ onMounted(async () => {
 </script>
 
 <template>
-    <main class="flex-1 w-full flex-col items-center overflow-y-auto p-[30px]">
-        <div class="flex items-center justify-between w-full justify-around">
-            <RouterLink to="/main">
-                <IconBack size="24px" class="cursor-pointer" />
-            </RouterLink>
+    <main class="w-full flex-1 relative z-0 overflow-hidden">
 
-            <div class="flex items-center gap-1">
-                <IconWallet size="24px" />
-                <h2 class="font-bold text-[20px]">WALLET</h2>
-            </div>
-
-            <IconBack size="24px" class="cursor-pointer opacity-0" />
+        <div class="absolute -z-10 left-1/2 -translate-x-1/2 top-[80%] -translate-y-[70%] size-[500px]">
+            <img src="/assets/images/premium-coin.png" alt="coin" class="object-cover size-full">
         </div>
 
-        <CoinsEarnedDisplayBox class="mt-[20px]" :coins="wallet.balance" />
+        <section
+            class="size-full flex flex-col items-center overflow-y-auto pt-[70px] p-[30px] relative z-0 bg-black/20">
 
-        <UpgradesInventoryPreview />
+            <RouterLink to="/main" class="size-[25px] absolute left-4 top-[85px]">
+                <img src="/assets/images/back-icon.png" alt="back" class="size-full object-contain" />
+            </RouterLink>
 
-        <Leaderboard />
+            <CoinsEarnedDisplayBox class="mt-[20px]" :coins="wallet.balance" />
+
+            <UpgradesInventoryPreview />
+
+            <Leaderboard />
+        </section>
+
     </main>
 </template>
 
-<style></style>
+<style scoped>
+section {
+    backdrop-filter: blur(5px);
+}
+</style>

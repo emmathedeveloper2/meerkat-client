@@ -8,7 +8,7 @@ import type { TgUser } from '@/lib/types';
 </script>
 
 <template>
-  <div :class="class" class="flex items-center justify-center gap-1 bg-primary text-primary-foreground rounded-full overflow-hidden">
+  <div :class="class" class="flex items-center justify-center gap-1 bg-primary text-primary-foreground rounded-full overflow-hidden border border-[#FFA600]">
     <img
       v-if="user.photo_url"
       :src="user.photo_url"

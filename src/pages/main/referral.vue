@@ -24,8 +24,8 @@ onMounted(() => {
     //@ts-ignore
     const qrcode = new QRCode(document.getElementById('qrcode'), {
         text: referralLink,
-        width: 180,
-        height: 180,
+        width: 140,
+        height: 140,
         colorDark: '#000',
         colorLight: '#fff',
         //@ts-ignore
@@ -35,28 +35,38 @@ onMounted(() => {
 </script>
 
 <template>
-    <main class="w-full flex flex-1 flex-col items-center overflow-y-auto p-[30px]">
-        <div class="flex items-center justify-between w-full justify-around">
-            <RouterLink to="/main">
-                <IconBack size="24px" class="cursor-pointer" />
+    <main class="w-full flex-1 relative z-0 overflow-hidden">
+        
+        <div class="absolute -z-10 left-1/2 -translate-x-1/2 top-[80%] -translate-y-[70%] size-[500px]">
+            <img src="/assets/images/premium-coin.png" alt="coin" class="object-cover size-full">
+        </div>
+
+        <section class="size-full flex flex-col items-center overflow-y-auto pt-[70px] p-[30px] relative z-0 bg-black/20">
+
+            <RouterLink to="/main" class="size-[25px] absolute left-4">
+                <img src="/assets/images/back-icon.png" alt="back" class="size-full object-contain"/>
             </RouterLink>
-
-            <div class="flex items-center gap-1">
-                <IconReferral size="24px" />
-                <h2 class="font-bold text-[20px]">REFERRAL</h2>
+    
+    
+            <div class="size-[200px] rounded bg-[#D7464650] mb-[30px] p-[20px] grid place-items-center rounded-[15px] backdrop-blur">
+                <div class="grid place-items-center bg-white p-2">
+                    <div id="qrcode"></div>
+                </div>
             </div>
+    
+            <LargeButton @click="handleCopy" label="COPY LINK" />
+    
+            <div class="flex items-center gap-1 mt-[20px]">
+                <img src="/assets/images/telegram-icon.png" alt="telegram" class="size-[20px]">
+                <small>Share via Telegram</small>
+            </div>
+        </section>
 
-            <IconBack size="24px" class="cursor-pointer opacity-0" />
-        </div>
-
-        <div id="qrcode" class="size-[200px] my-[30px] rounded-[10px] overflow-hidden border-2 border-primary bg-white flex items-center justify-center">
-        </div>
-
-        <LargeButton @click="handleCopy" label="COPY LINK" />
-
-        <div class="flex items-center gap-1 mt-[20px]">
-            <IconTelegramLogo size="24px" />
-            <span>Share via Telegram</span>
-        </div>
     </main>
 </template>
+
+<style scoped>
+section {
+    backdrop-filter: blur(5px);
+}
+</style>

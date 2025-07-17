@@ -4,14 +4,22 @@ import UpgradeItem from './UpgradeItem.vue';
 </script>
 
 <template>
-  <section class="border-2 border-primary bg-background-darker rounded-[10px] p-[20px] w-full max-w-[600px] mt-[60px]">
-    <h1 class="font-bold text-[20px] mb-[20px]">UPGRADES</h1>
-
-    <UpgradeItem image-url="/assets/shovel.png" title="SHOVEL" button-text="100"/>
-    <UpgradeItem image-url="/assets/meerkat-head.png" title="MINER" button-text="100"/>
-
-    <RouterLink to="/main/referral">
-      <UpgradeItem image-url="/assets/shovel.png" title="REFERRAL" button-text="invite" :is-referral="true"/>
-    </RouterLink>
-  </section>
+  <div id="upgrade-box" class="rounded-[10px] rounded w-full max-w-[600px] mt-[60px] p-[1px]">
+    <section class="bg-[#441A0C] p-[20px] rounded-[10px]">
+      <h1 class="font-bold text-[20px] mb-[20px]">UPGRADES</h1>
+  
+      <UpgradeItem image-url="/assets/images/shovel-icon.png" title="Shovel" price="100"/>
+      <UpgradeItem image-url="/assets/images/miner-icon.png" title="Miner" price="100"/>
+  
+      <RouterLink to="/main/referral">
+        <UpgradeItem image-url="/assets/images/link-upgrades.png" title="Referral" :is-referral="true"/>
+      </RouterLink>
+    </section>
+  </div>
 </template>
+
+<style scoped>
+  #upgrade-box {
+    background-image: linear-gradient(to right, #911A53 0%, #C76F0C 48%, #D0685B 100%);
+  }
+</style>
