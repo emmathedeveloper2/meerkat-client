@@ -1,12 +1,5 @@
-<script setup lang="ts">
-import IconReferral from './icons/IconReferral.vue';
-import IconHome from './icons/IconHome.vue';
-import IconWallet from './icons/IconWallet.vue';
-
-</script>
-
 <template>
-  <nav class="flex items-center justify-between p-[10px] text-primary">  
+  <nav class="flex items-center justify-around py-[10px] text-primary">  
       <RouterLink to="/main">
         <img src="/assets/images/home-icon.png" alt="home-icon" class="size-[24px]"/>
       </RouterLink>
