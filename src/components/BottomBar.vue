@@ -30,6 +30,6 @@ import IconWallet from './icons/IconWallet.vue';
   }
 
   img {
-    filter: drop-shadow(0px -1px 10px #C4084D90);
+    filter: drop-shadow(5px -1px 5px #C4084D);
   }
 </style>
