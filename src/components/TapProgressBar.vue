@@ -16,7 +16,7 @@ const tapPower = useTapPowerStore()
     background-image: linear-gradient(#FFFFFF , #FF9041);
 
     div {
-      background-image: linear-gradient(#FFA600 , #964026);
+      background-image: linear-gradient(#90ee90 , #3fb13f);
     }
   }
 </style>

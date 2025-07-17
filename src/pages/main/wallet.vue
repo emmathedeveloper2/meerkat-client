@@ -17,7 +17,7 @@ onMounted(async () => {
 <template>
     <main class="w-full flex-1 relative z-0 overflow-hidden">
 
-        <div class="absolute -z-10 left-1/2 -translate-x-1/2 top-[80%] -translate-y-[70%] size-[500px]">
+        <div class="absolute -z-10 left-1/2 -translate-x-1/2 top-[70%] -translate-y-[70%] size-[500px]">
             <img src="/assets/images/premium-coin.png" alt="coin" class="object-cover size-full">
         </div>
 
