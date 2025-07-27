@@ -1,11 +1,12 @@
 <script lang="ts" setup>
-import IconWallet from '@/components/icons/IconWallet.vue';
-import IconBack from '@/components/icons/IconBack.vue';
 import CoinsEarnedDisplayBox from '@/components/CoinsEarnedDisplayBox.vue';
 import UpgradesInventoryPreview from '@/components/UpgradesInventoryPreview.vue';
 import Leaderboard from '@/components/Leaderboard.vue';
 import { useWallet } from '@/stores/wallet';
 import { onMounted } from 'vue';
+import TasksBox from '@/components/TasksBox.vue';
+import toast from 'vue3-hot-toast';
+import IconPlug from '@/components/icons/IconPlug.vue';
 
 const wallet = useWallet()
 
@@ -28,9 +29,23 @@ onMounted(async () => {
                 <img src="/assets/images/back-icon.png" alt="back" class="size-full object-contain" />
             </RouterLink>
 
+
             <CoinsEarnedDisplayBox class="mt-[20px]" :coins="wallet.balance" />
 
+            <span 
+            class="flex items-center gap-2 gradient-text text-primary font-bold text-[20px] mt-4"
+            @click="() => toast('COMING SOON', {
+                icon: '✨',
+                style: {
+                    borderRadius: '10px',
+                    fontWeight: 'bold'
+                }
+            })"
+            >CONNECT YOUR WALLET <IconPlug size="15px"/></span>
+
             <UpgradesInventoryPreview />
+
+            <TasksBox />
 
             <Leaderboard />
         </section>

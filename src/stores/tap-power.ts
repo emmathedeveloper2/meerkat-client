@@ -1,17 +1,33 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import { useWallet } from "./wallet";
 
 export const useTapPowerStore = defineStore('tappower', () => {
 
     const totalTaps = ref(0)
 
+    const wallet = useWallet()
+
     let dropTotalTapsTimer: number;
 
     let dropTotalTapsTimeOut: number;
 
-    const increaseTotalTaps = () => {
+    let tappingDisabled = ref(false)
 
-        if (totalTaps.value >= 100) return
+    const increaseTotalTaps = async () => {
+
+        if (totalTaps.value >= 100) {
+
+            tappingDisabled.value = true
+
+            await wallet.increaseBalance().then(() => {
+                totalTaps.value = 0
+            }).finally(() => {
+                tappingDisabled.value = false
+            })
+
+            return
+        }
 
         if (totalTaps.value < 20) {
             totalTaps.value += 2
@@ -22,7 +38,7 @@ export const useTapPowerStore = defineStore('tappower', () => {
         } else if (totalTaps.value > 60 && totalTaps.value <= 90) {
             totalTaps.value += .25
         } else {
-            totalTaps.value += .05
+            totalTaps.value += .20
         }
 
         clearTimeout(dropTotalTapsTimeOut)
@@ -46,6 +62,7 @@ export const useTapPowerStore = defineStore('tappower', () => {
 
     return {
         increaseTotalTaps,
-        totalTaps
+        totalTaps,
+        tappingDisabled
     }
 })

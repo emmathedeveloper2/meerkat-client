@@ -2,11 +2,21 @@
 import BottomBar from '@/components/BottomBar.vue';
 import Header from '@/components/Header.vue'
 import LoadingUI from '@/components/LoadingUI.vue';
+import MeerkatAPIBridge from '@/lib/meerkat-api-bridge';
+import { useAuthStore } from '@/stores/auth';
+import { useWallet } from '@/stores/wallet';
 import { onMounted, ref } from 'vue';
 
 const loading = ref(true)
 
-onMounted(() => {
+const wallet = useWallet()
+
+onMounted(async () => {
+
+  await wallet.getDailyBonus()
+
+  await wallet.fetchWalletBalance()
+
   setTimeout(() => {
     loading.value = false
   } , 2000)

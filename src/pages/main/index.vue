@@ -13,7 +13,7 @@ const tapPower = useTapPowerStore()
       <TapProgressBar />
       
       <img src="/assets/meerkat-with-shadow.png" alt="mascot">
-      <LargeButton @click="tapPower.increaseTotalTaps" label="TAP TO DIG"/>
+      <LargeButton :disabled="tapPower.tappingDisabled" @click="tapPower.increaseTotalTaps" label="TAP TO DIG"/>
 
       <UpgradesBox />
   </main>

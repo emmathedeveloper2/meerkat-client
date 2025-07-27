@@ -44,3 +44,7 @@ feat: enhance TapProgressBar and tap power store with dynamic tap tracking and i
 
 Full UI Revamp
 Add new Telegram and wallet icons to the assets/images directory
+
+### 28 - 7 - 25
+
+refactor: update Toaster position, enhance wallet functionality, and add tasks for user rewards

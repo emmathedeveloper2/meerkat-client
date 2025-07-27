@@ -7,10 +7,6 @@ import { useWallet } from '@/stores/wallet';
 const auth = useAuthStore()
 
 const wallet = useWallet()
-
-onMounted(async () => {
-  await wallet.fetchWalletBalance()
-})
 </script>
 
 <template>

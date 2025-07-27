@@ -49,7 +49,3 @@
     
   </section>
 </template>
-
-<style>
-
-</style>

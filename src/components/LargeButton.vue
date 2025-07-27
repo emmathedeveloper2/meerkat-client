@@ -1,13 +1,14 @@
 <script lang="ts" setup>
 defineProps<{
   label?: string;
+  disabled?: boolean
 }>()
 
 const emit = defineEmits(['click'])
 </script>
 
 <template>
-  <button @click="() => emit('click')" class="w-max font-bold text-[20px] rounded-full p-[2px]">
+  <button :disabled="disabled" @click="() => emit('click')" class="w-max font-bold text-[20px] rounded-full p-[2px] disabled:opacity-50">
     <div class="size-full py-[10px] px-[50px] rounded-full text-black">
       {{ label || 'Button' }}
     </div>

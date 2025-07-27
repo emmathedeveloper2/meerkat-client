@@ -1,7 +1,91 @@
 import toast from 'vue3-hot-toast'
 
-const BASE_URL = "https://meerkat-bot-server.emmathedeveloper.workers.dev"
+const IS_DEV = false
+
+const BASE_URL = IS_DEV ? "https://d4mkx0vv-8787.uks1.devtunnels.ms" : "https://meerkat-bot-server.emmathedeveloper.workers.dev"
 export default class MeerkatAPIBridge {
+    
+    
+    static async increaseBalance(userTelegramId: string){
+        
+        try {
+
+            const response = await fetch(`${BASE_URL}/api/increase-balance/${userTelegramId}` , {
+                method: "POST",
+            })
+        
+            const data = await response.json()
+        
+            if(!data?.success) throw new Error(data.message)
+        
+            toast.success(data.message)
+            
+        } catch (error: any) {
+            console.log(error)
+            toast.error(error?.message || "Something went wrong")
+        }
+    }
+
+    static async giveBonusForFollowing(userTelegramId: string , platform: string){
+
+        const followedAlready = localStorage.getItem(`followed_on_${platform}`)
+
+        if(followedAlready) return toast.error("You've done this task")
+
+        try {
+
+            const response = await fetch(`${BASE_URL}/api/add-point-for-following/${userTelegramId}` , {
+                method: "POST",
+                body: JSON.stringify({ platform }),
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            })
+
+            const data = await response.json()
+
+            if(!data?.success) throw new Error(data.message)
+
+            toast.success(data.message)
+
+            localStorage.setItem(`followed_on_${platform}`, 'true')
+            
+        } catch (error: any) {
+            console.log(error)
+            toast.error(error?.message || "Something went wrong")
+        }
+    }
+
+    static async giveDailyBonus(userTelegramId: string, interaction = false) {
+
+        const today = new Date().toDateString()
+
+        const lastClaimedDate = localStorage.getItem("lastClaimedDate")
+
+        if (lastClaimedDate == today) {
+            if (interaction) toast.error("You've already claimed today's reward")
+            return
+        }
+
+        try {
+
+            const response = await fetch(`${BASE_URL}/api/add-daily-bonus/${userTelegramId}`, {
+                method: "POST"
+            })
+
+            const data = await response.json()
+
+            if (!data?.success) throw new Error(data.message)
+
+            toast.success(data.message)
+
+            localStorage.setItem("lastClaimedDate", today)
+
+        } catch (error: any) {
+            console.log(error)
+            if (interaction) toast.error(error?.message || "Something went wrong")
+        }
+    }
 
 
     static async giveReferralBonus(userTelegramId: string, referrerTelegramId: string) {

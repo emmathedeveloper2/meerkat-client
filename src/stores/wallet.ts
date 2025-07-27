@@ -15,13 +15,34 @@ export const useWallet = defineStore("wallet", () => {
 
     const fetchWalletBalance = async () => {
         
-        await MeerkatAPIBridge.getWalletBalance(auth.user?.id.toString()!).then(async res => {
+        if(auth.user) await MeerkatAPIBridge.getWalletBalance(auth.user.id.toString()).then(async res => {
             balance.value = res ?? 0
         })
     }
 
+    const getDailyBonus = async () => {
+         if(auth.user) await MeerkatAPIBridge.giveDailyBonus(auth.user.id.toString())
+    }
+
+    const increaseBalance = async () => {
+        try {
+
+            balance.value += 1
+
+            if(auth.user) await MeerkatAPIBridge.increaseBalance(auth.user.id.toString())
+
+        } catch (error) {
+
+            balance.value -= 1
+
+            throw error
+        }
+    }
+
     return {
         balance,
-        fetchWalletBalance
+        fetchWalletBalance,
+        getDailyBonus,
+        increaseBalance
     }
 })
