@@ -48,3 +48,7 @@ Add new Telegram and wallet icons to the assets/images directory
 ### 28 - 7 - 25
 
 refactor: update Toaster position, enhance wallet functionality, and add tasks for user rewards
+
+### 29 - 7 - 25
+
+remove redundant check for signed-up status in createAccount method

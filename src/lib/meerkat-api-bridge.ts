@@ -129,8 +129,6 @@ export default class MeerkatAPIBridge {
 
         try {
 
-            if (localStorage.getItem('signedup')) return callback?.()
-
             id = toast.loading("Connecting...")
 
             const response = await fetch(`${BASE_URL}/api/create-account`, {
