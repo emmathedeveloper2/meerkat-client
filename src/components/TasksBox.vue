@@ -35,7 +35,7 @@ const tasks = [
 
 <template>
     <section class="flex flex-col w-full rounded-lg border border-[#911A53] p-2 mb-[20px]">
-        <h2 class="text-[18px] font-bold mb-[20px]">REWARDS</h2>
+        <h2 class="text-[18px] font-bold mb-[20px]">TASKS</h2>
 
         <div v-for="task in tasks"
             class="flex items-center justify-between w-full bg-[#3C312B] backdrop-blur p-2 rounded-lg mb-1">
