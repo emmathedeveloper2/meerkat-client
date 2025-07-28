@@ -93,9 +93,10 @@ export default class MeerkatAPIBridge {
 
         } catch (error: any) {
             console.log(error)
-            if (interaction) toast.error(error?.message || "Something went wrong")
-
-            throw error
+            if (interaction){
+                toast.error(error?.message || "Something went wrong")
+                throw error
+            } 
         }
     }
 
