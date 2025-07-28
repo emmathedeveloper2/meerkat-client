@@ -58,6 +58,8 @@ export default class MeerkatAPIBridge {
 
             console.log(error)
             toast.error(error?.message || "Something went wrong")
+
+            throw error
         }
     }
 
