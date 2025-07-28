@@ -51,6 +51,11 @@ export default class MeerkatAPIBridge {
             localStorage.setItem(`followed_on_${platform}`, 'true')
             
         } catch (error: any) {
+
+            if(error?.message.toLowerCase().startsWith("You've already")) {
+                localStorage.setItem(`followed_on_${platform}`, 'true')
+            }
+
             console.log(error)
             toast.error(error?.message || "Something went wrong")
         }
