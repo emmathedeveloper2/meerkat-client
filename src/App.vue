@@ -9,6 +9,6 @@
         <component :is="Component"/>
       </transition>
     </router-view>
-    <Toaster position="bottom-center"/>
+    <Toaster position="top-center"/>
   </div>
 </template>

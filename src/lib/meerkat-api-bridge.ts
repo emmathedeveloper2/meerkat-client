@@ -17,8 +17,6 @@ export default class MeerkatAPIBridge {
             const data = await response.json()
         
             if(!data?.success) throw new Error(data.message)
-        
-            toast.success(data.message)
             
         } catch (error: any) {
             console.log(error)
@@ -46,8 +44,6 @@ export default class MeerkatAPIBridge {
             const data = await response.json()
 
             if(!data?.success) throw new Error(data.message)
-
-            toast.success(data.message)
 
             localStorage.setItem(`followed_on_${platform}`, 'true')
             
@@ -86,8 +82,6 @@ export default class MeerkatAPIBridge {
             const data = await response.json()
 
             if (!data?.success) throw new Error(data.message)
-
-            toast.success(data.message)
 
             localStorage.setItem("lastClaimedDate", today)
 

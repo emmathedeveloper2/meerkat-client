@@ -52,3 +52,5 @@ refactor: update Toaster position, enhance wallet functionality, and add tasks f
 ### 29 - 7 - 25
 
 remove redundant check for signed-up status in createAccount method
+
+remove toast notifications after successful API responses
