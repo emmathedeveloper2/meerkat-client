@@ -11,7 +11,7 @@ const tasks = [
     {
         done: !!(localStorage.getItem(`followed_on_twitter`)),
         text: 'Follow us on X',
-        points: 1,
+        points: 10,
         url: 'https://x.com/meerkatairdrop?t=mU5KmfbUXHb_74jTPZTF_g&s=09',
         platform: 'twitter',
         onClick: function(){
@@ -25,7 +25,7 @@ const tasks = [
 
             setTimeout(async () => {
                 if(auth.user) MeerkatAPIBridge.giveBonusForFollowing(auth.user.id.toString() , 'twitter').then(() => {
-                    wallet.balance += 1
+                    wallet.balance += this.points
                 })
             } , 10000)
         }
