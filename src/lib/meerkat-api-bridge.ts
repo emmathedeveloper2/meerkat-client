@@ -52,7 +52,7 @@ export default class MeerkatAPIBridge {
             
         } catch (error: any) {
 
-            if(error?.message.toLowerCase().startsWith("You've already")) {
+            if(error?.message.toLowerCase().startsWith("you've already")) {
                 localStorage.setItem(`followed_on_${platform}`, 'true')
             }
 
