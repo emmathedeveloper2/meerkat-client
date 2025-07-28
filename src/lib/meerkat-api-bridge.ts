@@ -23,16 +23,17 @@ export default class MeerkatAPIBridge {
         } catch (error: any) {
             console.log(error)
             toast.error(error?.message || "Something went wrong")
+            throw error
         }
     }
 
     static async giveBonusForFollowing(userTelegramId: string , platform: string){
 
-        const followedAlready = localStorage.getItem(`followed_on_${platform}`)
-
-        if(followedAlready) return toast.error("You've done this task")
-
+        
         try {
+            const followedAlready = localStorage.getItem(`followed_on_${platform}`)
+
+            if(followedAlready) throw new Error("You've already done this task")
 
             const response = await fetch(`${BASE_URL}/api/add-point-for-following/${userTelegramId}` , {
                 method: "POST",
@@ -69,12 +70,14 @@ export default class MeerkatAPIBridge {
 
         const lastClaimedDate = localStorage.getItem("lastClaimedDate")
 
-        if (lastClaimedDate == today) {
-            if (interaction) toast.error("You've already claimed today's reward")
-            return
-        }
-
+        
         try {
+            
+            if (lastClaimedDate == today) {
+                if (interaction) toast.error("You've already claimed today's reward")
+
+                throw new Error("You've already claimed today's reward")
+            }
 
             const response = await fetch(`${BASE_URL}/api/add-daily-bonus/${userTelegramId}`, {
                 method: "POST"
@@ -91,6 +94,8 @@ export default class MeerkatAPIBridge {
         } catch (error: any) {
             console.log(error)
             if (interaction) toast.error(error?.message || "Something went wrong")
+
+            throw error
         }
     }
 
