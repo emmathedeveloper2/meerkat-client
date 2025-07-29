@@ -4,20 +4,40 @@ const IS_DEV = false
 
 const BASE_URL = IS_DEV ? "https://d4mkx0vv-8787.uks1.devtunnels.ms" : "https://meerkat-bot-server.emmathedeveloper.workers.dev"
 export default class MeerkatAPIBridge {
-    
-    
-    static async increaseBalance(userTelegramId: string){
-        
+
+    static async getUpgrades() {
+
+        try {
+            const response = await fetch(`${BASE_URL}/api/upgrades`, {
+                method: "GET",
+                credentials: 'include',
+            })
+
+            const data = await response.json()
+
+            if (!data?.success) throw new Error(data.message)
+
+            return data.data
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
+    }
+
+
+    static async increaseBalance(userTelegramId: string) {
+
         try {
 
-            const response = await fetch(`${BASE_URL}/api/increase-balance/${userTelegramId}` , {
+            const response = await fetch(`${BASE_URL}/api/increase-balance/${userTelegramId}`, {
                 method: "POST",
+                credentials: 'include',
             })
-        
+
             const data = await response.json()
-        
-            if(!data?.success) throw new Error(data.message)
-            
+
+            if (!data?.success) throw new Error(data.message)
+
         } catch (error: any) {
             console.log(error)
             toast.error(error?.message || "Something went wrong")
@@ -25,16 +45,17 @@ export default class MeerkatAPIBridge {
         }
     }
 
-    static async giveBonusForFollowing(userTelegramId: string , platform: string){
+    static async giveBonusForFollowing(userTelegramId: string, platform: string) {
 
-        
+
         try {
             const followedAlready = localStorage.getItem(`followed_on_${platform}`)
 
-            if(followedAlready) throw new Error("You've already done this task")
+            if (followedAlready) throw new Error("You've already done this task")
 
-            const response = await fetch(`${BASE_URL}/api/add-point-for-following/${userTelegramId}` , {
+            const response = await fetch(`${BASE_URL}/api/add-point-for-following/${userTelegramId}`, {
                 method: "POST",
+                credentials: 'include',
                 body: JSON.stringify({ platform }),
                 headers: {
                     'Content-Type': "application/json"
@@ -43,13 +64,13 @@ export default class MeerkatAPIBridge {
 
             const data = await response.json()
 
-            if(!data?.success) throw new Error(data.message)
+            if (!data?.success) throw new Error(data.message)
 
             localStorage.setItem(`followed_on_${platform}`, 'true')
-            
+
         } catch (error: any) {
 
-            if(error?.message.toLowerCase().startsWith("you've already")) {
+            if (error?.message.toLowerCase().startsWith("you've already")) {
                 localStorage.setItem(`followed_on_${platform}`, 'true')
             }
 
@@ -66,17 +87,18 @@ export default class MeerkatAPIBridge {
 
         const lastClaimedDate = localStorage.getItem("lastClaimedDate")
 
-        
+
         try {
-            
+
             if (lastClaimedDate == today) {
                 if (interaction) toast.error("You've already claimed today's reward")
 
                 throw new Error("You've already claimed today's reward")
             }
 
-            const response = await fetch(`${BASE_URL}/api/add-daily-bonus/${userTelegramId}`, {
-                method: "POST"
+            const response = await fetch(`${BASE_URL}/api/add-daily-bonus`, {
+                method: "POST",
+                credentials: 'include',
             })
 
             const data = await response.json()
@@ -87,10 +109,10 @@ export default class MeerkatAPIBridge {
 
         } catch (error: any) {
             console.log(error)
-            if (interaction){
+            if (interaction) {
                 toast.error(error?.message || "Something went wrong")
                 throw error
-            } 
+            }
         }
     }
 
@@ -101,6 +123,7 @@ export default class MeerkatAPIBridge {
 
             const response = await fetch(`${BASE_URL}/api/give-referral-bonus`, {
                 method: 'POST',
+                credentials: 'include',
                 body: JSON.stringify({ userTelegramId, referrerTelegramId }),
                 headers: {
                     "Content-Type": "application/json"
@@ -127,6 +150,7 @@ export default class MeerkatAPIBridge {
 
             const response = await fetch(`${BASE_URL}/api/create-account`, {
                 method: 'POST',
+                credentials: 'include',
                 body: JSON.stringify({ telegramId }),
                 headers: {
                     "Content-Type": "application/json"
@@ -156,11 +180,9 @@ export default class MeerkatAPIBridge {
 
         try {
 
-            const response = await fetch(`${BASE_URL}/api/wallet-balance/${telegramId}`, {
+            const response = await fetch(`${BASE_URL}/api/wallet-balance`, {
                 method: 'GET',
-                headers: {
-                    "Content-Type": "application/json"
-                }
+                credentials: 'include',
             })
 
             const data = await response.json()

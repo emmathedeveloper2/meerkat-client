@@ -56,3 +56,5 @@ remove redundant check for signed-up status in createAccount method
 remove toast notifications after successful API responses
 
 increase points awarded for following on Twitter from 1 to 10
+
+### refactor: update UpgradeItem component to include 'name' prop and improve API integration in UpgradesBox and MeerkatAPIBridge
