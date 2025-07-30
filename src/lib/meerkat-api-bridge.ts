@@ -54,7 +54,7 @@ export default class MeerkatAPIBridge {
 
         try {
 
-            const response = await fetch(`${BASE_URL}/api/increase-balance/${userTelegramId}`, {
+            const response = await fetch(`${BASE_URL}/api/increase-balance`, {
                 method: "POST",
                 ...this.defaultOptions()
             })
