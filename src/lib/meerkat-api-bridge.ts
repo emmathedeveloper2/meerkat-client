@@ -1,16 +1,41 @@
 import toast from 'vue3-hot-toast'
 
-const IS_DEV = false
+const IS_DEV = true
 
 const BASE_URL = IS_DEV ? "https://d4mkx0vv-8787.uks1.devtunnels.ms" : "https://meerkat-bot-server.emmathedeveloper.workers.dev"
 export default class MeerkatAPIBridge {
+
+    static defaultOptions(options?: Record<string, any>, headers?: Record<string, string>) {
+
+        let data = {
+            credentials: "include",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        }
+
+        if (options) data = {
+            ...data,
+            ...options
+        }
+
+        if (headers) data = {
+            ...data,
+            headers: {
+                ...data.headers,
+                ...headers
+            }
+        }
+
+        return data as any
+    }
 
     static async getUpgrades() {
 
         try {
             const response = await fetch(`${BASE_URL}/api/upgrades`, {
                 method: "GET",
-                credentials: 'include',
+                ...this.defaultOptions()
             })
 
             const data = await response.json()
@@ -31,7 +56,7 @@ export default class MeerkatAPIBridge {
 
             const response = await fetch(`${BASE_URL}/api/increase-balance/${userTelegramId}`, {
                 method: "POST",
-                credentials: 'include',
+                ...this.defaultOptions()
             })
 
             const data = await response.json()
@@ -56,10 +81,14 @@ export default class MeerkatAPIBridge {
             const response = await fetch(`${BASE_URL}/api/add-point-for-following/${userTelegramId}`, {
                 method: "POST",
                 credentials: 'include',
-                body: JSON.stringify({ platform }),
-                headers: {
-                    'Content-Type': "application/json"
-                }
+                ...this.defaultOptions(
+                    {
+                        body: JSON.stringify({ platform })
+                    },
+                    {
+                        'Content-Type': "application/json"
+                    }
+                )
             })
 
             const data = await response.json()
@@ -98,7 +127,7 @@ export default class MeerkatAPIBridge {
 
             const response = await fetch(`${BASE_URL}/api/add-daily-bonus`, {
                 method: "POST",
-                credentials: 'include',
+                ...this.defaultOptions()
             })
 
             const data = await response.json()
@@ -123,11 +152,14 @@ export default class MeerkatAPIBridge {
 
             const response = await fetch(`${BASE_URL}/api/give-referral-bonus`, {
                 method: 'POST',
-                credentials: 'include',
-                body: JSON.stringify({ userTelegramId, referrerTelegramId }),
-                headers: {
-                    "Content-Type": "application/json"
-                }
+                ...this.defaultOptions(
+                    {
+                        body: JSON.stringify({ userTelegramId, referrerTelegramId })
+                    },
+                    {
+                        "Content-Type": "application/json"
+                    }
+                )
             })
 
             const data = await response.json()
@@ -160,7 +192,7 @@ export default class MeerkatAPIBridge {
             const data = await response.json()
 
             if (data && data.success) {
-                localStorage.setItem('signedup', 'true')
+                localStorage.setItem('token', data.data.token)
                 toast.dismiss(id)
                 id = toast.success("Connected successfully")
 
@@ -182,7 +214,7 @@ export default class MeerkatAPIBridge {
 
             const response = await fetch(`${BASE_URL}/api/wallet-balance`, {
                 method: 'GET',
-                credentials: 'include',
+                ...this.defaultOptions()
             })
 
             const data = await response.json()
