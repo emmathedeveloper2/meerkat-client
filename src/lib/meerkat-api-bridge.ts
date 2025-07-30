@@ -78,7 +78,7 @@ export default class MeerkatAPIBridge {
 
             if (followedAlready) throw new Error("You've already done this task")
 
-            const response = await fetch(`${BASE_URL}/api/add-point-for-following/${userTelegramId}`, {
+            const response = await fetch(`${BASE_URL}/api/add-point-for-following`, {
                 method: "POST",
                 credentials: 'include',
                 ...this.defaultOptions(
