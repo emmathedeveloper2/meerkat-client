@@ -1,6 +1,6 @@
 import toast from 'vue3-hot-toast'
 
-const IS_DEV = true
+const IS_DEV = false
 
 const BASE_URL = IS_DEV ? "https://d4mkx0vv-8787.uks1.devtunnels.ms" : "https://meerkat-bot-server.emmathedeveloper.workers.dev"
 export default class MeerkatAPIBridge {
