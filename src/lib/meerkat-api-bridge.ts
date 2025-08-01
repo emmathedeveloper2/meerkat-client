@@ -1,6 +1,6 @@
 import toast from 'vue3-hot-toast'
 
-const IS_DEV = false
+const IS_DEV = true
 
 const BASE_URL = IS_DEV ? "https://d4mkx0vv-8787.uks1.devtunnels.ms" : "https://meerkat-bot-server.emmathedeveloper.workers.dev"
 export default class MeerkatAPIBridge {
@@ -70,20 +70,37 @@ export default class MeerkatAPIBridge {
         }
     }
 
-    static async giveBonusForFollowing(userTelegramId: string, platform: string) {
+    static async getAllTasks() {
+        try {
 
+            const response = await fetch(`${BASE_URL}/api/get-tasks`, {
+                method: "GET",
+                credentials: 'include',
+                ...this.defaultOptions()
+            })
+
+            const data = await response.json()
+
+            if (!data?.success) throw new Error(data.message)
+
+            return data.data as any[]
+        } catch (error: any) {
+            console.log(error)
+            toast.error(error?.message || "Something went wrong")
+            throw error
+        }
+    }
+
+    static async giveBonusForCompletingTask(task: Record<string, any>, userId: string) {
 
         try {
-            const followedAlready = localStorage.getItem(`followed_on_${platform}`)
 
-            if (followedAlready) throw new Error("You've already done this task")
-
-            const response = await fetch(`${BASE_URL}/api/add-point-for-following`, {
+            const response = await fetch(`${BASE_URL}/api/add-point-for-task`, {
                 method: "POST",
                 credentials: 'include',
                 ...this.defaultOptions(
                     {
-                        body: JSON.stringify({ platform })
+                        body: JSON.stringify(task)
                     },
                     {
                         'Content-Type': "application/json"
@@ -95,12 +112,12 @@ export default class MeerkatAPIBridge {
 
             if (!data?.success) throw new Error(data.message)
 
-            localStorage.setItem(`followed_on_${platform}`, 'true')
+            localStorage.setItem(`done_${task.id}_${userId}`, 'true')
 
         } catch (error: any) {
 
             if (error?.message.toLowerCase().startsWith("you've already")) {
-                localStorage.setItem(`followed_on_${platform}`, 'true')
+                localStorage.setItem(`done_${task.id}_${userId}`, 'true')
             }
 
             console.log(error)

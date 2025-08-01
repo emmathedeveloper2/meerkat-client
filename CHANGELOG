@@ -62,3 +62,7 @@ increase points awarded for following on Twitter from 1 to 10
 ### 30 - 7 - 25
 
 refactor: enhance API request handling by centralizing options in defaultOptions method
+
+### 31 - 7 - 25
+
+refactor: implement tasks store with API integration for task management
