@@ -70,3 +70,5 @@ refactor: implement tasks store with API integration for task management
 ### 4 - 8 - 25
 
 Added mascot and coin animation when power bar is full
+
+fix: update tap power store and UI components for improved coin animation and layout adjustments
