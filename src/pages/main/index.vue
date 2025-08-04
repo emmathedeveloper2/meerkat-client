@@ -12,7 +12,11 @@ const tapPower = useTapPowerStore()
   <main class="flex flex-col items-center flex-1 p-[30px] overflow-y-auto pt-[70px]">
       <TapProgressBar />
       
-      <img src="/assets/meerkat-with-shadow.png" alt="mascot">
+      <div  class="size-[170px] my-16 relative">
+        <img :class="{'opacity-100' : tapPower.animating}" class="absolute top-0 opacity-0" src="/assets/animations/digging.gif" alt="mascot">
+        <img :class="{'opacity-100' : !tapPower.animating}" class="opacity-0" src="/assets/animations/static-digging.png" alt="mascot">
+      </div>
+
       <LargeButton :disabled="tapPower.tappingDisabled" @click="tapPower.increaseTotalTaps" label="TAP TO DIG"/>
 
       <UpgradesBox />

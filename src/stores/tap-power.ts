@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useWallet } from "./wallet";
 
 export const useTapPowerStore = defineStore('tappower', () => {
 
-    const totalTaps = ref(0)
+    const totalTaps = ref(98)
 
     const wallet = useWallet()
 
@@ -12,17 +12,34 @@ export const useTapPowerStore = defineStore('tappower', () => {
 
     let dropTotalTapsTimeOut: number;
 
+    let animationTimeout: number;
+
     let tappingDisabled = ref(false)
 
+    let animating = ref(false)
+
     const increaseTotalTaps = async () => {
+
+        clearTimeout(dropTotalTapsTimeOut)
+
+        clearInterval(dropTotalTapsTimer)
+
+        clearTimeout(animationTimeout)
 
         if (totalTaps.value >= 100) {
 
             tappingDisabled.value = true
 
-            await wallet.increaseBalance().then(() => {
+            animating.value = true
+
+            animationTimeout = setTimeout(() => {
+                animating.value = false
+            } , 1000)
+
+            wallet.increaseBalance().then(() => {
                 totalTaps.value = 0
             }).finally(() => {
+                animating.value = false
                 tappingDisabled.value = false
             })
 
@@ -41,28 +58,25 @@ export const useTapPowerStore = defineStore('tappower', () => {
             totalTaps.value += .20
         }
 
-        clearTimeout(dropTotalTapsTimeOut)
-
-        clearInterval(dropTotalTapsTimer)
-
         dropTotalTapsTimeOut = setTimeout(() => {
             dropTotalTapsTimer = setInterval(() => {
 
-                if(totalTaps.value <= 0){
+                if (totalTaps.value <= 0) {
                     clearInterval(dropTotalTapsTimer)
                     clearTimeout(dropTotalTapsTimeOut)
                     return
                 }
 
                 totalTaps.value -= 1
-            } , 200)
-        } , 1000)
+            }, 200)
+        }, 1000)
 
     }
 
     return {
         increaseTotalTaps,
         totalTaps,
-        tappingDisabled
+        tappingDisabled,
+        animating
     }
 })

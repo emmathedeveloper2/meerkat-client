@@ -1,12 +1,14 @@
 <script lang="ts" setup>
 import { useAuthStore } from '@/stores/auth';
 import Avatar from './avatar.vue';
-import { onMounted } from 'vue';
 import { useWallet } from '@/stores/wallet';
+import { useTapPowerStore } from '@/stores/tap-power';
 
 const auth = useAuthStore()
 
 const wallet = useWallet()
+
+const tapPower = useTapPowerStore()
 </script>
 
 <template>
@@ -16,7 +18,7 @@ const wallet = useWallet()
           <Avatar v-if="auth.user" :user="auth.user" class="size-[30px]" />
         </div>
     
-        <div class="flex items-center gap-[4px]">
+        <div :class="{'pop' : tapPower.animating}" class="flex items-center gap-[4px]">
           <img src="/assets/images/coin-icon.png" alt="coin" class="size-[24px]">
           <span class="font-bold">{{ wallet.balance }}</span>
         </div>
@@ -30,5 +32,18 @@ header {
 }
 header > section {
   background-color: #964026;
+}
+
+.pop {
+  animation: pop 1s ease-in-out;
+}
+
+@keyframes pop {
+  0% {
+    scale: 1;
+  }
+  50%{
+    scale: 1.2;
+  }
 }
 </style>
