@@ -4,7 +4,7 @@ import { useWallet } from "./wallet";
 
 export const useTapPowerStore = defineStore('tappower', () => {
 
-    const totalTaps = ref(98)
+    const totalTaps = ref(0)
 
     const wallet = useWallet()
 
