@@ -39,6 +39,14 @@ html {
     width: 100%;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
+* {
+    scrollbar-width: 0;
+}
+
 @layer base {
     body {
         /* background-color: var(--background); */
