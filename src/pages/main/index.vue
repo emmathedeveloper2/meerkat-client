@@ -9,7 +9,7 @@ const tapPower = useTapPowerStore()
 </script>
 
 <template>
-  <main class="flex flex-col items-center flex-1 p-[30px] overflow-y-auto pt-[70px]">
+  <main class="flex flex-col items-center flex-1 overflow-y-auto pt-[70px] w-full px-[30px]">
       <TapProgressBar />
       
       <div  class="size-[170px] my-16 relative">

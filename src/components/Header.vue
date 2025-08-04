@@ -18,7 +18,7 @@ const tapPower = useTapPowerStore()
           <Avatar v-if="auth.user" :user="auth.user" class="size-[30px]" />
         </div>
     
-        <div :class="{'pop' : tapPower.animating}" class="flex items-center gap-[4px]">
+        <div :class="{'pop' : tapPower.popCoin}" class="flex items-center gap-[4px]">
           <img src="/assets/images/coin-icon.png" alt="coin" class="size-[24px]">
           <span class="font-bold">{{ wallet.balance }}</span>
         </div>

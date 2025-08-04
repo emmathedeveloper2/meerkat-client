@@ -4,7 +4,7 @@ import { useWallet } from "./wallet";
 
 export const useTapPowerStore = defineStore('tappower', () => {
 
-    const totalTaps = ref(0)
+    const totalTaps = ref(98)
 
     const wallet = useWallet()
 
@@ -18,6 +18,8 @@ export const useTapPowerStore = defineStore('tappower', () => {
 
     let animating = ref(false)
 
+    let popCoin = ref(false)
+
     const increaseTotalTaps = async () => {
 
         clearTimeout(dropTotalTapsTimeOut)
@@ -28,19 +30,20 @@ export const useTapPowerStore = defineStore('tappower', () => {
 
         if (totalTaps.value >= 100) {
 
-            tappingDisabled.value = true
+            popCoin.value = true
 
-            animating.value = true
-
-            animationTimeout = setTimeout(() => {
+            setTimeout(() => {
+                popCoin.value = false
                 animating.value = false
             } , 1000)
+            
+            tappingDisabled.value = true
 
             wallet.increaseBalance().then(() => {
                 totalTaps.value = 0
             }).finally(() => {
-                animating.value = false
                 tappingDisabled.value = false
+                animating.value = false
             })
 
             return
@@ -57,6 +60,12 @@ export const useTapPowerStore = defineStore('tappower', () => {
         } else {
             totalTaps.value += .20
         }
+
+        animating.value = true
+
+        animationTimeout = setTimeout(() => {
+            animating.value = false
+        }, 1000)
 
         dropTotalTapsTimeOut = setTimeout(() => {
             dropTotalTapsTimer = setInterval(() => {
@@ -77,6 +86,7 @@ export const useTapPowerStore = defineStore('tappower', () => {
         increaseTotalTaps,
         totalTaps,
         tappingDisabled,
-        animating
+        animating,
+        popCoin
     }
 })

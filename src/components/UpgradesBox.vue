@@ -12,7 +12,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="upgrade-box" class="rounded-[10px] rounded w-full max-w-[600px] mt-[60px] p-[1px]">
+  <div id="upgrade-box" class="rounded-[10px] w-full mt-[60px] p-[1px]">
     <section class="bg-[#441A0C] p-[20px] rounded-[10px]">
       <h1 class="font-bold text-[20px] mb-[20px]">UPGRADES</h1>
       
