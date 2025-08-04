@@ -66,3 +66,7 @@ refactor: enhance API request handling by centralizing options in defaultOptions
 ### 31 - 7 - 25
 
 refactor: implement tasks store with API integration for task management
+
+### 4 - 8 - 25
+
+Added mascot and coin animation when power bar is full
