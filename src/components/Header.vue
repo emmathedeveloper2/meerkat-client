@@ -43,7 +43,7 @@ header > section {
     scale: 1;
   }
   50%{
-    scale: 1.2;
+    scale: 1.3;
   }
 }
 </style>
